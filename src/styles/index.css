@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.p-checkbox .p-checkbox-box {
+    border-radius: 30% !important;
+}
