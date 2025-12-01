@@ -1,11 +1,13 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { Product } from "@/shared/interfaces";
+import { useToast } from "@/contexts/ToastContext";
 
 const FAVORITES_KEY = "catalog_favorites";
 
 export const useFavorites = () => {
   const [favorites, setFavorites] = useState<Product[]>([]);
   const isInitialMount = useRef(true);
+  const toast = useToast();
 
   useEffect(() => {
     try {
@@ -15,6 +17,7 @@ export const useFavorites = () => {
       }
     } catch (error) {
       console.error("Failed to load favorites:", error);
+      toast.showError("Failed to load favorites. Please try again later.");
     }
   }, []);
 
@@ -28,6 +31,7 @@ export const useFavorites = () => {
       localStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites));
     } catch (error) {
       console.error("Failed to save favorites:", error);
+      toast.showError("Failed to save favorites. Please try again later.");
     }
   }, [favorites]);
 
