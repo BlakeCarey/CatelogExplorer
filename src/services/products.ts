@@ -3,7 +3,7 @@ import { Product } from "@/shared/interfaces";
 
 export const productsApi = createApi({
   reducerPath: "productsApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "/api", timeout: 10000 }),
+  baseQuery: fetchBaseQuery({ baseUrl: "/api/", timeout: 10000 }),
   tagTypes: ["Products"],
   refetchOnMountOrArgChange: false,
   refetchOnFocus: false,

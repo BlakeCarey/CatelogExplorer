@@ -3,7 +3,7 @@ import { Category } from "@/shared/interfaces";
 
 export const categoriesApi = createApi({
   reducerPath: "categoriesApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "/api", timeout: 10000 }),
+  baseQuery: fetchBaseQuery({ baseUrl: "/api/", timeout: 10000 }),
   tagTypes: ["Categories"],
   refetchOnMountOrArgChange: false,
   refetchOnFocus: false,
